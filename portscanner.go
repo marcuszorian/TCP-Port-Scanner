@@ -60,7 +60,7 @@ func getOpenPorts(hostname string, ports PortRange) {
 		}
 	}()
 
-	// Close results after workers doneThe program scans a specified host for open TCP ports using multiple goroutines and channels. It reports open ports along with common service names and supports scanning either well-known ports (1–1024) or the full range (1–65535).
+	// Close results after workers done
 	go func() {
 		waitGroup.Wait()
 		close(resultChan)
@@ -82,9 +82,9 @@ func getOpenPorts(hostname string, ports PortRange) {
 	}
 }
 
-func scanPort(hostname string, port int) bool { // lowercase indicated private function
-	address := hostname + ":" + strconv.Itoa(port) // hostname + port
-	conn, err := net.DialTimeout("tcp", address, 250*time.Millisecond)
+func scanPort(hostname string, port int) bool { // Perform connect scan on port
+	address := hostname + ":" + strconv.Itoa(port) // hostname:port
+	conn, err := net.DialTimeout("tcp", address, 250*time.Millisecond) // Attempts TCP connection to address, returning conn if successful or err otherwise
 	if err != nil {
 		return false
 	}
