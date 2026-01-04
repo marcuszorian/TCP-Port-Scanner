@@ -1,5 +1,5 @@
 
-# Go Port Scanner
+# TCP Port Scanner
 
 A simple TCP port scanner written in Go.
 
