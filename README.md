@@ -31,3 +31,5 @@ $ ./portscan scanme.nmap.org
 Credits to Kelvin Mai for the tutorial
 - https://www.youtube.com/watch?v=KW8jls13YOY
 - https://github.com/kelvin-mai/go-port-scanner
+
+Common ports sourced from https://www.uninets.com/blog/what-is-tcp-port
