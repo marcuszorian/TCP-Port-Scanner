@@ -1,5 +1,5 @@
 package main
-
+The program scans a specified host for open TCP ports using multiple goroutines and channels. It reports open ports along with common service names and supports scanning either well-known ports (1–1024) or the full range (1–65535).
 import (
 	"fmt"
 	"net"
@@ -9,8 +9,6 @@ import (
 	"sync"
 	"time"
 )
-
-// developed using https://www.youtube.com/watch?v=KW8jls13YOY
 
 // common ports sourced from https://www.uninets.com/blog/what-is-tcp-port
 
@@ -62,7 +60,7 @@ func getOpenPorts(hostname string, ports PortRange) {
 		}
 	}()
 
-	// Close results after workers done
+	// Close results after workers doneThe program scans a specified host for open TCP ports using multiple goroutines and channels. It reports open ports along with common service names and supports scanning either well-known ports (1–1024) or the full range (1–65535).
 	go func() {
 		waitGroup.Wait()
 		close(resultChan)
@@ -76,7 +74,7 @@ func getOpenPorts(hostname string, ports PortRange) {
 	sort.Ints(openPorts)
 
 	for _, port := range openPorts {
-		if service, ok := common_ports[port]; ok { // if port exists in common_ports
+		if service, ok := common_ports[port]; ok { // ok indicates if a map value exists
 			fmt.Printf("%d: %s (open)\n", port, service)
 		} else {
 			fmt.Printf("%d: unknown (open)\n", port)
